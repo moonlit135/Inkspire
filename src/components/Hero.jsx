@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const heroImage = '/images/image1.jpg';
 
 const Hero = () => {
+  useEffect(() => {
+    // Preload the hero image
+    const img = new Image();
+    img.src = heroImage;
+    
+    // Add to preload links as well for better browser support
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = heroImage;
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
   return (
     <div 
       className="relative h-[80vh] min-h-[500px] flex items-center justify-center bg-cover bg-center pb-20 mb-8"

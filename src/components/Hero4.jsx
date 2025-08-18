@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const image5 = '/images/image5.jpg'; // Path to image in public directory
 
 const Hero4 = () => {
+  useEffect(() => {
+    // Preload the hero background image
+    const img = new Image();
+    img.src = image5;
+    
+    // Add to preload links for better browser support
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = image5;
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
   return (
-    <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-amber-900 via-amber-800 to-amber-950 px-4 sm:px-6 lg:px-8 py-16 -mt-20 pt-32 overflow-visible">
+    <div 
+      className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-amber-900 via-amber-800 to-amber-950 px-4 sm:px-6 lg:px-8 py-16 pt-48 sm:pt-40 -mt-20 overflow-visible"
+      style={{
+        backgroundImage: `linear-gradient(to bottom right, rgba(120, 53, 15, 0.8), rgba(146, 64, 14, 0.8)), url(${image5})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Vintage paper texture overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYzZWIiIHN0cm9rZS13aWR0aD0iMC4xIiBzdHJva2Utb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiBvcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-20"></div>
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text Content */}
           <div className="text-center lg:text-left">
-            <div className="relative inline-block mb-10 group">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-amber-50 font-['Playfair_Display'] tracking-wide relative z-10">
+            <div className="relative inline-block mb-6 sm:mb-8 md:mb-10 group">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-amber-50 font-['Playfair_Display'] tracking-wide relative z-10">
                 <span className="relative inline-block">
                   <span className="relative z-10">
                     <span className="text-amber-200/90 font-['Cormorant_Garamond'] font-normal italic">Welcome to Writer’s Studio</span>
@@ -26,12 +50,12 @@ const Hero4 = () => {
               
               
             </div>
-            <p className="text-xl md:text-2xl text-amber-100/90 mb-12 italic font-['Cormorant_Garamond'] tracking-wider relative pl-6 border-l-2 border-amber-400/30 transform transition-all duration-500 hover:border-amber-400/70 hover:pl-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-amber-100/90 mb-8 sm:mb-10 md:mb-12 italic font-['Cormorant_Garamond'] tracking-wider relative pl-4 sm:pl-6 border-l-2 border-amber-400/30 transform transition-all duration-500 hover:border-amber-400/70 hover:pl-6 sm:hover:pl-8">
             “A world where every word finds a home.”
             </p>
             
             {/* Navigation Links */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center [&>*]:backdrop-blur-sm">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center [&>*]:backdrop-blur-sm w-full sm:w-auto">
           <Link 
             to="/publish" 
             className="inline-block bg-white/5 border-2 border-white/50 text-white px-8 py-3 rounded-full font-semibold uppercase tracking-wider text-sm md:text-base hover:bg-white/10 hover:border-white/80 transition-all duration-300 relative overflow-hidden group"
@@ -50,7 +74,7 @@ const Hero4 = () => {
           </div>
 
           {/* Right side - Image with modern shape */}
-          <div className="relative h-80 md:h-96 lg:h-[500px]">
+          <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] mt-10 sm:mt-0">
             <div className="relative h-full w-full group perspective-1000">
               {/* 3D effect layers */}
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-700/30 to-amber-900/40 

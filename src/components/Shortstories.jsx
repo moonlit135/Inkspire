@@ -1,5 +1,5 @@
 import React from 'react';
-import TopWeek from './TopWeek';
+import TopWeeknew from './TopWeeknew';
 import RisingVoices from './RisingVoices';
 import { topStories as ShortstoriesData, risingVoices, latestCollections, shortstoriesCollections} from "../data/ShortstoriesData";
 import LatestCollections from './LatestCollections';
@@ -20,7 +20,7 @@ const Shortstories = () => {
           
           {/* Top Week Section */}
           <div className="p-8">
-            <TopWeek 
+            <TopWeeknew 
               items={ShortstoriesData} 
               title="Top Stories of the Week"
               description="Discover the most captivating short stories" 

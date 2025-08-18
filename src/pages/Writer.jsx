@@ -22,12 +22,12 @@ const Writer = () => {
             {/* Tab Bar */}
             <div className="py-4">
               <div className="overflow-x-auto">
-                <div className="flex justify-center gap-2 px-4">
+                <div className="flex justify-start sm:justify-center gap-1 sm:gap-2 px-2 sm:px-4 overflow-x-auto pb-2 hide-scrollbar">
                   {categories.map((category) => (
                     <button
                       key={category}
                       onClick={() => setActiveTab(category)}
-                      className={`px-6 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                      className={`px-3 sm:px-6 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-200 whitespace-nowrap ${
                         activeTab === category
                           ? 'bg-white text-amber-900 shadow-md border-t-2 border-amber-400 transform -translate-y-0.5'
                           : 'text-amber-800 hover:bg-white/70 hover:shadow-sm'
@@ -42,46 +42,46 @@ const Writer = () => {
           </div>
 
           {/* Tab Content Card */}
-          <div className="max-w-4xl mx-auto -mt-6 relative z-0 px-4">
-            <div className="bg-white rounded-xl shadow-lg p-8 border border-amber-100">
+          <div className="max-w-4xl mx-auto -mt-4 sm:-mt-6 relative z-0 px-4">
+            <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 border border-amber-100">
               <div className="text-center">
                 {activeTab === 'Poems' && (
-                  <p className="text-amber-900/90 text-xl font-medium tracking-wide leading-relaxed">
+                  <p className="text-amber-900/90 text-base sm:text-lg md:text-xl font-medium tracking-wide leading-relaxed">
                     <span className="bg-gradient-to-r from-amber-700 to-amber-500 bg-clip-text text-transparent">
                       Where emotions flow in measured lines, and every word carries weight.
                     </span>
                   </p>
                 )}
                 {activeTab === 'Short Stories' && (
-                  <p className="text-amber-900/90 text-xl font-medium tracking-wide leading-relaxed">
+                  <p className="text-amber-900/90 text-base sm:text-lg md:text-xl font-medium tracking-wide leading-relaxed">
                     <span className="bg-gradient-to-r from-amber-700 to-amber-500 bg-clip-text text-transparent">
                       Bite-sized tales that leave a lasting impression.
                     </span>
                   </p>
                 )}
                 {activeTab === 'Articles' && (
-                  <p className="text-amber-900/90 text-xl font-medium tracking-wide leading-relaxed">
+                  <p className="text-amber-900/90 text-base sm:text-lg md:text-xl font-medium tracking-wide leading-relaxed">
                     <span className="bg-gradient-to-r from-amber-700 to-amber-500 bg-clip-text text-transparent">
                       Share your unique perspective with the world.
                     </span>
                   </p>
                 )}
                 {activeTab === 'Novels' && (
-                  <p className="text-amber-900/90 text-xl font-medium tracking-wide leading-relaxed">
+                  <p className="text-amber-900/90 text-base sm:text-lg md:text-xl font-medium tracking-wide leading-relaxed">
                     <span className="bg-gradient-to-r from-amber-700 to-amber-500 bg-clip-text text-transparent">
                       Where imagination knows no bounds.
                     </span>
                   </p>
                 )}
                 {activeTab === 'Scripts' && (
-                  <p className="text-amber-900/90 text-xl font-medium tracking-wide leading-relaxed">
+                  <p className="text-amber-900/90 text-base sm:text-lg md:text-xl font-medium tracking-wide leading-relaxed">
                     <span className="bg-gradient-to-r from-amber-700 to-amber-500 bg-clip-text text-transparent">
                       Bring characters to life through powerful dialogue.
                     </span>
                   </p>
                 )}
                 {activeTab === 'Journals' && (
-                  <p className="text-amber-900/90 text-xl font-medium tracking-wide leading-relaxed">
+                  <p className="text-amber-900/90 text-base sm:text-lg md:text-xl font-medium tracking-wide leading-relaxed">
                     <span className="bg-gradient-to-r from-amber-700 to-amber-500 bg-clip-text text-transparent">
                       Your thoughts, your voice, your legacy.
                     </span>
@@ -93,7 +93,7 @@ const Writer = () => {
         </div>
 
         {/* Content Area */}
-        <div className="max-w-7xl mx-auto px-4 py-8 bg-white/80 rounded-lg my-6 backdrop-blur-sm shadow-inner">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6 md:py-8 bg-white/80 rounded-lg my-4 sm:my-6 backdrop-blur-sm shadow-inner">
           {activeTab === 'Poems' && <Poem />}
           {activeTab === 'Short Stories' && <Shortstories />}
           {activeTab === 'Articles' && <div>Articles Content</div>}

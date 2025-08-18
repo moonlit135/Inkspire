@@ -23,6 +23,7 @@ const LatestCollections = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [itemsToShow, setItemsToShow] = useState(3);
   
   // Theme configuration
   const themes = {
@@ -51,25 +52,54 @@ const LatestCollections = ({
   const gap = 1.5; // gap-6 = 1.5rem = 24px
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      
+      // Adjust items to show based on screen size
+      if (width < 640) {
+        setItemsToShow(1);
+      } else if (width < 1024) {
+        setItemsToShow(2);
+      } else {
+        setItemsToShow(3);
+      }
     };
     
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex >= displayedCollections.length - 3 ? 0 : prevIndex + 1
+      prevIndex >= displayedCollections.length - itemsToShow ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex <= 0 ? displayedCollections.length - 3 : prevIndex - 1
+      prevIndex <= 0 ? Math.max(0, displayedCollections.length - itemsToShow) : prevIndex - 1
     );
+  };
+  
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      nextSlide();
+    } else if (touchStart - touchEnd < -50) {
+      prevSlide();
+    }
   };
 
   // Default item renderer
@@ -148,11 +178,16 @@ const LatestCollections = ({
         </div>
 
         <div className="relative overflow-hidden">
-          <div className="w-full overflow-hidden">
+          <div 
+            className="w-full overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div 
               className="flex transition-transform duration-300 ease-in-out"
               style={{
-                transform: `translateX(calc(-${currentIndex * (100 / 3)}% + ${currentIndex * gap * 0.5}rem))`,
+                transform: `translateX(calc(-${currentIndex * (100 / itemsToShow)}% + ${currentIndex * gap * 0.5}rem))`,
                 gap: `${gap}rem`,
                 padding: `0 ${gap/2}rem`
               }}
@@ -162,7 +197,7 @@ const LatestCollections = ({
                   key={item[itemKey] || index} 
                   className="flex-shrink-0"
                   style={{ 
-                    width: `calc(${100/3}% - ${gap * 2/3}rem)`,
+                    width: `calc(${100/itemsToShow}% - ${gap * (itemsToShow - 1)/itemsToShow}rem)`,
                     minWidth: 0
                   }}
                 >

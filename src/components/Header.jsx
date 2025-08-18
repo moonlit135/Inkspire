@@ -5,82 +5,105 @@ import { FaSearch, FaUser, FaBars, FaTimes } from 'react-icons/fa';
 const Header = () => {
   const location = useLocation();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const searchRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleSearchToggle = () => {
     setIsSearchOpen(!isSearchOpen);
   };
 
   return (
-    <header className="fixed top-4 left-4 right-4 z-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="bg-white/15 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg px-6 py-3 flex justify-between items-center">
-          {/* Logo */}
-          <div className="relative inline-block">
-            {/* Decorative leaf design */}
-            <div className="absolute -inset-4 -z-10">
-              <div className="absolute inset-0 bg-[#5d3abf]/10 rounded-full blur-md transform rotate-45 scale-90">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#5d3abf]/15 to-transparent rounded-full"></div>
-                <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-br from-[#e9c46a]/20 to-transparent rounded-full"></div>
-              </div>
+    <header className="fixed top-0 left-0 right-0 z-50 w-full py-2 px-2 md:py-4 md:px-4">
+      <div className="max-w-7xl mx-auto px-2 md:px-4">
+        <div className="bg-gray-800/60 backdrop-blur-xl rounded-2xl border border-white/5 shadow-lg px-3 py-2 md:px-6 md:py-3 flex items-center justify-between">
+          <div className="flex items-center">
+            {/* Mobile menu button */}
+            <div className="md:hidden mr-2">
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-[#e9c46a] hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <FaTimes className="w-6 h-6" /> : <FaBars className="w-6 h-6" />}
+              </button>
             </div>
-            <Link 
-              to="/" 
-              className="relative text-3xl font-['Mr_De_Haviland'] font-normal text-transparent bg-clip-text bg-gradient-to-r from-white to-[#f0e4ff] cursor-pointer z-10"
-              style={{ 
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                transform: 'translateY(2px)',
-                letterSpacing: '2px',
-                lineHeight: 1
-              }}
-              onClick={(e) => {
-                // Prevent default if already on home page to avoid unnecessary re-renders
-                if (location.pathname === '/') {
-                  e.preventDefault();
-                }
-              }}
-            >
-              MyFictionWorld
-            </Link>
+            {/* Logo */}
+            <div className="relative inline-block">
+              {/* Decorative leaf design */}
+              <div className="absolute -inset-3 -z-10 md:-inset-4">
+                <div className="absolute inset-0 bg-[#5d3abf]/10 rounded-full blur-md transform rotate-45 scale-90">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#5d3abf]/15 to-transparent rounded-full"></div>
+                  <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-br from-[#e9c46a]/20 to-transparent rounded-full"></div>
+                </div>
+              </div>
+              <Link 
+                to="/" 
+                className="relative text-2xl md:text-3xl font-['Mr_De_Haviland'] font-normal text-transparent bg-clip-text bg-gradient-to-r from-white to-[#f0e4ff] cursor-pointer z-10"
+                onClick={(e) => {
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                  }
+                }}
+              >
+                MyFictionWorld
+              </Link>
+            </div>
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
-          <Link 
+          <nav className={`${isMobileMenuOpen ? 'fixed top-16 left-2 right-2 bg-gray-800/80 backdrop-blur-xl rounded-2xl shadow-lg p-4' : 'hidden'} md:flex md:relative md:bg-transparent md:shadow-none md:p-0`} ref={mobileMenuRef}>
+            <div className="flex flex-col space-y-4 md:flex-row md:items-center md:space-x-6 md:space-y-0 lg:space-x-8">
+            <Link 
               to="/" 
-              className="text-[#e9c46a] hover:text-white font-medium transition-colors"
+              className={`${location.pathname === '/' ? 'text-white' : 'text-[#e9c46a]'} hover:text-white font-medium transition-colors md:text-base text-lg`}
             >
               Home
             </Link>
             <Link 
               to="/writer" 
-              className="text-[#e9c46a] hover:text-white  font-medium transition-colors"
+              className={`${location.pathname === '/writer' ? 'text-white' : 'text-[#e9c46a]'} hover:text-white font-medium transition-colors md:text-base text-lg`}
             >
               Writer's Studio
             </Link>
             <Link 
               to="/library" 
-              className="text-[#e9c46a] hover:text-white  font-medium transition-colors"
+              className={`${location.pathname === '/library' ? 'text-white' : 'text-[#e9c46a]'} hover:text-white font-medium transition-colors md:text-base text-lg`}
             >
               Library
             </Link>
             <Link 
               to="/echoes" 
-              className="text-[#e9c46a] hover:text-white  font-medium transition-colors"
+              className={`${location.pathname === '/echoes' ? 'text-white' : 'text-[#e9c46a]'} hover:text-white font-medium transition-colors md:text-base text-lg`}
             >
               Echoes & Frames
             </Link>
             <Link 
               to="/showcase" 
-              className="text-[#e9c46a] hover:text-white  font-medium transition-colors"
+              className={`${location.pathname === '/showcase' ? 'text-white' : 'text-[#e9c46a]'} hover:text-white font-medium transition-colors md:text-base text-lg`}
             >
               Showcase & Challenges
             </Link>
+            </div>
           </nav>
 
           {/* Search and Login */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <div className="relative" ref={searchRef}>
               <button 
                 onClick={handleSearchToggle}
@@ -125,8 +148,8 @@ const Header = () => {
               )}
             </div>
             
-            <button className="bg-white/20 hover:bg-white/30 text-white px-5 py-2 rounded-full font-medium flex items-center space-x-2 transition-colors">
-              <FaUser className="w-4 h-4" />
+            <button className="bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full font-medium flex items-center space-x-1 md:space-x-2 transition-colors text-sm md:text-base">
+              <FaUser className="w-3.5 h-3.5 md:w-4 md:h-4" />
               <span>Login</span>
             </button>
           </div>

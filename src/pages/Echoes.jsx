@@ -31,59 +31,59 @@ const Echoes = () => {
         <Hero1 />
         
         {/* Tabs Banner */}
-        <div className="bg-[#f5e9d9] py-6 rounded-lg mx-4 -mt-6 mb-6 relative z-10">
-          <div className="container mx-auto px-4">
-            <div className="flex justify-center space-x-8">
-              <button
-                onClick={() => setActiveTab('audiobook')}
-                className={`px-6 py-2 text-lg font-medium rounded-full transition-colors ${
-                  activeTab === 'audiobook' 
-                    ? 'bg-amber-600 text-white' 
-                    : 'text-amber-800 hover:bg-amber-100'
-                }`}
-              >
-                Audiobooks
-              </button>
-              <button
-                onClick={() => setActiveTab('podcast')}
-                className={`px-6 py-2 text-lg font-medium rounded-full transition-colors ${
-                  activeTab === 'podcast' 
-                    ? 'bg-amber-600 text-white' 
-                    : 'text-amber-800 hover:bg-amber-100'
-                }`}
-              >
-                Podcasts
-              </button>
-              <button
-                onClick={() => setActiveTab('vlog')}
-                className={`px-6 py-2 text-lg font-medium rounded-full transition-colors ${
-                  activeTab === 'vlog' 
-                    ? 'bg-amber-600 text-white' 
-                    : 'text-amber-800 hover:bg-amber-100'
-                }`}
-              >
-                Vlogs
-              </button>
+        <div className="bg-[#f5e9d9] py-4 sm:py-6 rounded-lg mx-2 sm:mx-4 -mt-4 sm:-mt-6 mb-4 sm:mb-6 relative z-10 overflow-hidden">
+          <div className="container mx-auto px-2 sm:px-4">
+            <div className="relative
+              flex overflow-x-auto pb-2 sm:pb-0
+              scrollbar-hide -mx-2 sm:mx-0
+              snap-x snap-mandatory
+              scroll-smooth
+              [&::-webkit-scrollbar]:hidden
+              [&>*]:snap-center
+            ">
+              <div className="flex space-x-2 sm:space-x-4 px-2 sm:px-0 mx-auto">
+                {[
+                  { id: 'audiobook', label: 'Audiobooks' },
+                  { id: 'podcast', label: 'Podcasts' },
+                  { id: 'vlog', label: 'Vlogs' }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`
+                      whitespace-nowrap px-4 py-2 text-sm sm:text-base md:text-lg
+                      font-medium rounded-full transition-all duration-200
+                      ${activeTab === tab.id 
+                        ? 'bg-amber-600 text-white shadow-md' 
+                        : 'text-amber-800 hover:bg-amber-100/80'}
+                      min-w-[120px] sm:min-w-[140px] text-center
+                      active:scale-95 transform transition-transform
+                    `}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Tab Description Card */}
-        <div className="container mx-auto px-4 -mt-10 mb-6 transform transition-all duration-300 hover:scale-[1.01] relative z-20">
-          <div className="bg-gradient-to-r from-amber-50 to-amber-100 rounded-xl shadow-lg p-4 max-w-2xl mx-auto text-center border border-amber-200/50">
+        <div className="container mx-auto px-3 sm:px-4 -mt-8 sm:-mt-10 mb-4 sm:mb-6 transform transition-all duration-300 hover:scale-[1.01] relative z-20">
+          <div className="bg-gradient-to-r from-amber-50 to-amber-100 rounded-xl shadow-lg p-3 sm:p-4 max-w-2xl mx-auto text-center border border-amber-200/50">
             <div className="relative">
-              <h2 className="text-xl md:text-2xl font-bold text-amber-800">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-amber-800 px-2">
                 {activeTab === 'podcast' && 'Listen to voices that inspire'}
                 {activeTab === 'vlog' && 'Stories in motion'}
                 {activeTab === 'audiobook' && 'Every story deserves to be heard'}
               </h2>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-amber-400 to-amber-500 mx-auto mt-2 mb-3 rounded-full"></div>
+              <div className="w-12 sm:w-16 h-0.5 bg-gradient-to-r from-amber-400 to-amber-500 mx-auto mt-2 mb-2 sm:mb-3 rounded-full"></div>
             </div>
           </div>
         </div>
         
         {/* Tab Content */}
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
           {renderContent()}
         </div>
         
@@ -91,7 +91,7 @@ const Echoes = () => {
         <div className="relative w-full overflow-hidden -mb-1">
           <svg 
             viewBox="0 0 1200 120" 
-            className="w-full h-16 md:h-24 lg:h-32"
+            className="w-full h-12 sm:h-16 md:h-24 lg:h-32"
             preserveAspectRatio="none" 
             xmlns="http://www.w3.org/2000/svg"
           >

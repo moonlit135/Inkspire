@@ -15,7 +15,7 @@ const Teaser = () => {
   }, []);
 
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-br from-amber-50 to-white overflow-hidden">
+    <section className="relative pt-12 pb-16 sm:pt-16 md:pt-24 md:pb-28 lg:py-28 bg-gradient-to-br from-amber-50 to-white overflow-hidden">
       {/* Wave Bottom */}
       <div className="absolute -bottom-1 left-0 w-full h-24">
         <svg 
@@ -43,11 +43,11 @@ const Teaser = () => {
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -right-32 w-64 h-64 bg-amber-200/20 rounded-full filter blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-amber-300/20 rounded-full filter blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-amber-300/20 rounded-full filter blur-3xl hidden sm:block"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="space-y-8">
             <motion.div
@@ -64,7 +64,7 @@ const Teaser = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-amber-900 leading-tight font-['Playfair_Display']"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-amber-900 leading-tight font-['Playfair_Display']"
             >
               Step Into the <span className="text-amber-600">Writers' Studio</span>
             </motion.h2>
@@ -73,7 +73,7 @@ const Teaser = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-amber-700/90 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-amber-700/90 leading-relaxed"
             >
               Write poems, short stories, or even full novels. Share your voice, inspire others, and build your creative journey.
             </motion.p>
@@ -104,7 +104,7 @@ const Teaser = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="pt-6"
             >
-              <div className="flex items-center justify-center space-x-8">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
                 {[
                   { icon: <FaBookOpen className="text-xl" />, label: 'Stories', color: 'bg-amber-100 text-amber-600' },
                   { icon: '🌱', label: 'Growth', color: 'bg-green-100 text-green-600' },
@@ -131,9 +131,9 @@ const Teaser = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative mt-12 lg:mt-0"
+            className="relative -mt-8 sm:mt-0 lg:mt-0"
           >
-            <div className="relative max-w-lg mx-auto">
+            <div className="relative max-w-md sm:max-w-lg mx-auto -mt-4 sm:mt-4 lg:mt-0">
               {/* Floating Elements */}
               <motion.div
                 animate={{
@@ -171,7 +171,7 @@ const Teaser = () => {
                 whileHover={{ scale: 1.02 }}
                 className="bg-white/90 backdrop-blur-sm p-1 rounded-3xl shadow-2xl border border-amber-100/50 overflow-hidden"
               >
-                <div className="h-80 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
+                <div className="h-64 sm:h-72 md:h-80 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl flex flex-col items-center justify-center p-6 sm:p-8 text-center relative overflow-hidden">
                   {/* Decorative Elements */}
                   <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/30 rounded-full -mr-16 -mt-16"></div>
                   <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-200/20 rounded-full -ml-20 -mb-20"></div>

@@ -10,8 +10,10 @@ const Library = () => {
   return (
     <div className="min-h-screen flex flex-col bg-amber-50">
       <Header />
-      <main className="flex-grow">
+      <main className="relative">
+      <div className="relative z-0">
         <Hero2 />
+      </div> 
         <div className="bg-[#f5e9d9] py-6 rounded-lg mx-4 -mt-6 mb-2 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl text-center font-bold text-amber-800 hover:bg-amber-100 font-serif italic">This Week's Highlights</h2>

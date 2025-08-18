@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 
-const image2 = '/images/image2.jpg'; // Path to image in public directory
+const image2 = '/images/image2.jpg';
 
 const Hero1 = () => {
+  useEffect(() => {
+    // Preload the background image
+    const img = new Image();
+    img.src = image2;
+    
+    // Add preload link for better browser support
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = image2;
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
   return (
-    <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-amber-900 via-amber-800 to-amber-950 px-4 sm:px-6 lg:px-8 py-16 -mt-20 pt-32 overflow-visible">
+    <div 
+      className="relative min-h-[80vh] flex items-center px-4 sm:px-6 lg:px-8 py-16 pt-48 sm:pt-40 -mt-20 overflow-visible"
+      style={{
+        backgroundImage: `linear-gradient(to bottom right, rgba(120, 53, 15, 0.85), rgba(146, 64, 14, 0.85)), url(${image2})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text Content */}

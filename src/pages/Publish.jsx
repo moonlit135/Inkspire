@@ -153,7 +153,7 @@ const Publish = () => {
         </div>
         
         {/* Overlapping Banner */}
-        <div className="container mx-auto px-4 relative z-10 -mt-20">
+        <div className="container mx-auto px-4 relative z-10 -mt-10">
           <div className="max-w-6xl mx-auto">
             <div className="bg-[#f5e9d9] py-8 rounded-xl text-center shadow-lg">
               <h1 className="text-4xl md:text-5xl font-bold text-amber-900 mb-3 font-['Playfair_Display']">
