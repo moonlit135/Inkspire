@@ -69,6 +69,13 @@ const Hero = () => {
             <span className="relative z-10">Start Reading</span>
             <span className="absolute inset-0 bg-white/10 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></span>
           </Link>
+          <Link 
+            to="/echoes" 
+            className="inline-block bg-white/5 border-2 border-white/50 text-white px-8 py-3 rounded-full font-semibold uppercase tracking-wider text-sm md:text-base hover:bg-white/10 hover:border-white/80 transition-all duration-300 relative overflow-hidden group"
+          >
+            <span className="relative z-10">Start Listening</span>
+            <span className="absolute inset-0 bg-white/10 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></span>
+          </Link>
         </div>
       </div>
       
