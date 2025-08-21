@@ -1,12 +1,20 @@
-# React + Vite
+# Inkspire  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Inkspire is a modern UI/UX demo for a content-sharing platform where users can publish and explore creative works like **stories, poems, articles, and journals**.  
+Beyond text, it also supports **multimedia content** — allowing users to upload and enjoy **audiobooks, podcasts, and vlogs**, making it a versatile hub for writers, readers, and creators.  
 
-Currently, two official plugins are available:
+🚀 **Tech Stack**  
+- React.js (Frontend)  
+- Tailwind CSS (Styling)  
+- Backend (in progress – planned with Node.js & Express)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ **Features (UI/UX Demo)**  
+- Clean and responsive UI for web and mobile  
+- Home feed with content cards and category filters  
+- Upload flow for text, audio, and video content (audiobooks, podcasts, vlogs)  
+- Content details page with likes & comments  
+- User dashboard (My Uploads) to track contributions  
+- Admin dashboard (planned) for managing users and content  
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+💡 **Goal**  
+The project focuses on delivering an engaging and intuitive user experience across different content types. It serves as a **frontend demo** for a larger full-stack application in progress.  
