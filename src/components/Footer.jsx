@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="flex flex-col items-center">
             <div className="w-40 h-40 rounded-full bg-white/95 border-4 border-[#e9c46a] flex items-center justify-center shadow-xl mb-6">
               <span className="text-[#5d4037] font-bold text-xl text-center px-4">
-                myfictionworld
+                Inkspire
               </span>
             </div>
             <p className="text-[#e9c46a] text-center text-lg font-medium italic mb-8">
@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-[#e9c46a] text-xl font-semibold uppercase tracking-wider text-center md:text-left">About Us</h3>
             <p className="text-white/80 leading-relaxed text-center md:text-left">
-              Myfictionworld is a digital storytelling platform where everyone can read, write, 
+              InkSpire is a digital storytelling platform where everyone can read, write, 
               and share their stories. You can even listen to your favorite stories through our podcasts. 
               This platform is for all literary lovers who enjoy reading, writing, and sharing their 
               tales with the world.
@@ -48,11 +48,11 @@ const Footer = () => {
               <div className="space-y-4">
                 <p className="flex items-center justify-center text-center text-white/90">
                   <FaPhone className="text-[#e9c46a] mr-3 text-xl transform scale-x-[-1]" />
-                  <span>0251 - 6167212</span>
+                  <span>0123 - 4567891</span>
                 </p>
                 <p className="flex items-center justify-center text-center text-white/90">
                   <FaEnvelope className="text-[#e9c46a] mr-3 text-xl" />
-                  <span>info@myfictionworld.in</span>
+                  <span>info@inkspire.in</span>
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@ const Footer = () => {
           {/* Copyright - Below Contact/Follow in Mobile */}
           <div className="pt-3 mt-3">
             <p className="text-white/70 text-sm text-center mb-4">
-              2025 MyFictionWorld, Inc. All rights reserved.
+              2025 InkSpire, Inc. All rights reserved.
             </p>
             <div className="w-16 h-px bg-white/20 mx-auto my-4"></div>
           </div>
@@ -128,7 +128,7 @@ const Footer = () => {
             <div className="space-y-6">
               <h3 className="text-[#e9c46a] text-xl font-semibold mb-6 uppercase tracking-wider">About Us</h3>
               <p className="text-white/80 leading-relaxed">
-                Myfictionworld is a digital storytelling platform where everyone can read, write, 
+                InkSpire is a digital storytelling platform where everyone can read, write, 
                 and share their stories. You can even listen to your favorite stories through our podcasts. 
                 This platform is for all literary lovers who enjoy reading, writing, and sharing their 
                 tales with the world.
@@ -139,7 +139,7 @@ const Footer = () => {
             <div className="flex flex-col items-center">
               <div className="w-40 h-40 rounded-full bg-white/95 border-4 border-[#e9c46a] flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 mb-6">
                 <span className="text-[#5d4037] font-bold text-xl text-center px-4">
-                  myfictionworld
+                  InkSpire
                 </span>
               </div>
               <p className="text-[#e9c46a] text-center text-lg font-medium italic">
@@ -158,7 +158,7 @@ const Footer = () => {
                   </p>
                   <p className="flex items-center text-white/90">
                     <FaEnvelope className="text-[#e9c46a] mr-3 text-xl" />
-                    <span>info@myfictionworld.in</span>
+                    <span>info@inkspire.in</span>
                   </p>
                 </div>
               </div>
@@ -206,7 +206,7 @@ const Footer = () => {
             <div className="col-span-full mt-3 pt-3">
               <div className="flex flex-col items-center">
                 <p className="text-white/70 text-sm mb-4">
-                  © 2025 MyFictionWorld, Inc. All rights reserved.
+                  © 2025 Inkspire, Inc. All rights reserved.
                 </p>
                 <div className="w-16 h-px bg-white/20 my-4"></div>
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-white/70 mt-2">

@@ -61,7 +61,7 @@ const Header = () => {
                   }
                 }}
               >
-                MyFictionWorld
+                Inkspire
               </Link>
             </div>
           </div>

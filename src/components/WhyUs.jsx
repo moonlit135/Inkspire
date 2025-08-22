@@ -33,7 +33,7 @@ const WhyUs = () => {
           >
             <FaQuoteLeft className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-4xl text-amber-200/70" />
             <blockquote className="text-3xl md:text-4xl font-['Playfair_Display'] font-medium text-amber-900 leading-tight mb-8">
-              "More than a platform — we're a community. At MyFictionWorld, writers and readers come together to inspire, challenge, and celebrate creativity."
+              "More than a platform — we're a community. At Inkspire, writers and readers come together to inspire, challenge, and celebrate creativity."
             </blockquote>
           </motion.div>
 
