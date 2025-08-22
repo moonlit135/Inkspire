@@ -154,7 +154,7 @@ const Footer = () => {
                 <div className="space-y-4">
                   <p className="flex items-center text-white/90">
                     <FaPhone className="text-[#e9c46a] mr-3 text-xl transform scale-x-[-1]" />
-                    <span>0251 - 6167212</span>
+                    <span>0123 - 45671</span>
                   </p>
                   <p className="flex items-center text-white/90">
                     <FaEnvelope className="text-[#e9c46a] mr-3 text-xl" />
