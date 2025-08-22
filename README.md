@@ -3,6 +3,8 @@
 Inkspire is a modern UI/UX demo for a content-sharing platform where users can publish and explore creative works like **stories, poems, articles, and journals**.  
 Beyond text, it also supports **multimedia content** — allowing users to upload and enjoy **audiobooks, podcasts, and vlogs**, making it a versatile hub for writers, readers, and creators.  
 
+Live Demo: https://inkspire-liard.vercel.app/
+
 🚀 **Tech Stack**  
 - React.js (Frontend)  
 - Tailwind CSS (Styling)  
